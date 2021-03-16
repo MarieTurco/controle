@@ -64,7 +64,11 @@ print(onote.valeur)
 Note.afficher(onote)
 
 
-#Question 5 
+#Question 5
 
-onotes = [Note(i,j,k) for i in notes[i][0] for j in notes[j][1] for k in notes[k][3]]
-print(onotes)
+eleve = [notes[i][0] for i in range(len(notes))]
+print(eleve) 
+
+onotes = Note("eleve1", 'maths',13)
+Note.afficher(onotes)
+
