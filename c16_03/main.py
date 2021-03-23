@@ -1,4 +1,4 @@
-#     position du problème    
+# position du problème    
 
 note1 = ('eleve1', 'math', 13)
 note2 = ('eleve1', 'physique', 15)
@@ -10,7 +10,7 @@ note7 = ('eleve2', 'math', 13)
 note8 = ('eleve2', 'math', 14)
 
 notes = [note1, note2, note3, note4, note5, note6,note7,note8]
-print(notes)
+print(f"note : {notes}")
 
 #Question 4 
 #a
@@ -25,26 +25,20 @@ print(f"Moyenne de l'élève 1 en maths : {moy2}")
 
 #c 
 
-def moyenne_tuples (liste_note,eleve = None,matiere = None):
-  if matiere != None : 
-    notes = [ liste_note[i][2] for i in range(len(liste_note)) if liste_note[i][0] == eleve and liste_note[i][1] == matiere]
-    moyenne = sum(notes)/len(notes)
-    return moyenne
-  else :
-    notes = [ liste_note[i][2] for i in range(len(liste_note)) if liste_note[i][0] == eleve ]
-    moyenne = sum(notes)/len(notes)
-    return moyenne
+def moyenne_tuples (notes,eleve = None,matiere = None):
+  notes = [ note for note in notes if note[0] == eleve ] if eleve is not None else notes
+  notes  = [ note for note in notes if note[1] == matiere] if matiere is not  None else notes
+  print(notes)
+  return sum(notes[2] for notes in notes)/len(notes)
+
+
   
 #test
-print("le résultat de la fonction : " , moyenne_tuples(notes,"eleve2","math"))
+print("le résultat de la fonction : " , moyenne_tuples(notes,"eleve2",None))
 
 
 # test faute matière 
 #moyenne_tuples(notes,"eleve2","maths") : ne fonctionne pas
-
-
-
-
 
 class Note:
   def __init__(self, eleve, matiere, valeur): #La méthode pour créer un objet
@@ -66,9 +60,24 @@ Note.afficher(onote)
 
 #Question 5
 
-eleve = [notes[i][0] for i in range(len(notes))]
-print(eleve) 
+onotes = [Note(eleve, matiere, valeur) for eleve, matiere, valeur in notes]
+print(f"longueur de la liste : {len(onotes)}")
 
-onotes = Note("eleve1", 'maths',13)
-Note.afficher(onotes)
+#Question 6 
 
+for onote in onotes:
+  onote.afficher()
+  print(onote.valeur)
+
+
+#Question 8 
+
+def moyenne_Notes(liste, eleve = None ,matiere = None):
+  notes = [ note for note in liste if note.eleve == eleve ] if eleve is not None else liste
+  notes  = [ note for note in liste if note.matiere == matiere] if matiere is not  None else liste
+  print(notes)
+  return sum(notes.valeur for notes in notes)/len(notes)
+
+
+print(onote.afficher())
+print(f"Test : {moyenne_Notes([onote])}")
