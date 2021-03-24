@@ -3,7 +3,7 @@ platform linux -- Python 3.9.2, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
 rootdir: /home/stidsem4/iut/2021/controle/marie.turco/c16_03
 collected 7 items
 
-test_16_03.py F.F.FFF                                                    [100%]
+test_16_03.py F.F..F.                                                    [100%]
 
 =================================== FAILURES ===================================
 _____________________________ Test1603sute.test_10 _____________________________
@@ -16,10 +16,18 @@ self = <c16_03.test_16_03.Test1603sute testMethod=test_10>
         except:
            assert False
         try:
->           Note.vider()
-E           AttributeError: type object 'Note' has no attribute 'vider'
+            Note.vider()
+        except:
+            assert False
+        note1 = Note('elv1', 'xx', 12)
+        note1 = Note('elv1', 'yy', 13)
+        note1 = Note('elv1', 'yy', 14)
+        note1 = Note('elv2', 'zz', 13)
+        try:
+>           assert Note.moyenne('elv1') == 13
+E           TypeError: moyenne() takes 1 positional argument but 2 were given
 
-test_16_03.py:98: AttributeError
+test_16_03.py:106: TypeError
 
 During handling of the above exception, another exception occurred:
 
@@ -33,20 +41,28 @@ self = <c16_03.test_16_03.Test1603sute testMethod=test_10>
         try:
             Note.vider()
         except:
->           assert False
-E           AssertionError: assert False
+            assert False
+        note1 = Note('elv1', 'xx', 12)
+        note1 = Note('elv1', 'yy', 13)
+        note1 = Note('elv1', 'yy', 14)
+        note1 = Note('elv2', 'zz', 13)
+        try:
+            assert Note.moyenne('elv1') == 13
+    
+            assert Note.moyenne('elv1', 'yy') == 13.5
+        except TypeError as err:
+            if 'argument' in err.args[0]:
+>               assert False, 'Probleme de parametres'
+E               AssertionError: Probleme de parametres
+E               assert False
 
-test_16_03.py:100: AssertionError
+test_16_03.py:111: AssertionError
 ----------------------------- Captured stdout call -----------------------------
 note : [('eleve1', 'math', 13), ('eleve1', 'physique', 15), ('eleve1', 'math', 13), ('eleve1', 'eco', 12), ('eleve1', 'eco', 13), ('eleve1', 'math', 12), ('eleve2', 'math', 13), ('eleve2', 'math', 14)]
 Moyenne de l'élève 1 : 13.0
 Moyenne de l'élève 1 en maths : 12.666666666666666
 [('eleve2', 'math', 13), ('eleve2', 'math', 14)]
 le résultat de la fonction :  13.5
-eleve1
-maths
-13
-eleve eleve1 matiere maths note 13
 longueur de la liste : 8
 eleve eleve1 matiere math note 13
 13
@@ -64,9 +80,7 @@ eleve eleve2 matiere math note 13
 13
 eleve eleve2 matiere math note 14
 14
-eleve eleve2 matiere math note 14
-None
-[<c16_03.main.Note object at 0x7ff342bc4760>]
+[<c16_03.main.Note object at 0x7f7a79f00160>]
 Test : 14.0
 _____________________________ Test1603sute.test_4 ______________________________
 
@@ -109,19 +123,6 @@ E               AssertionError: moyenne_tuples non définie
 E               assert False
 
 test_16_03.py:21: AssertionError
-_____________________________ Test1603sute.test_6 ______________________________
-
-self = <c16_03.test_16_03.Test1603sute testMethod=test_6>
-
-    def test_6(self):
-        from .main import Note, onotes
->       assert Note.__str__ != object.__str__, "Refaire la methode str"
-E       AssertionError: Refaire la methode str
-E       assert <slot wrapper '__str__' of 'object' objects> != <slot wrapper '__str__' of 'object' objects>
-E        +  where <slot wrapper '__str__' of 'object' objects> = <class 'c16_03.main.Note'>.__str__
-E        +  and   <slot wrapper '__str__' of 'object' objects> = object.__str__
-
-test_16_03.py:42: AssertionError
 _____________________________ Test1603sute.test_8 ______________________________
 
 self = <c16_03.test_16_03.Test1603sute testMethod=test_8>
@@ -145,30 +146,14 @@ self = <c16_03.test_16_03.Test1603sute testMethod=test_8>
         assert mnotes(notes, 'elv1', 'xx') == 14.5
 >       assert mnotes(notes, 'elv1')== 14.5
 E       AssertionError: assert 14.666666666666666 == 14.5
-E        +  where 14.666666666666666 = <function moyenne_Notes at 0x7ff342c42c10>((<c16_03.main.Note object at 0x7ff342c48430>, <c16_03.main.Note object at 0x7ff342c483a0>, <c16_03.main.Note object at 0x7ff342c48520>), 'elv1')
+E        +  where 14.666666666666666 = <function moyenne_Notes at 0x7f7a79ee6ca0>((<c16_03.main.Note object at 0x7f7a79f07460>, <c16_03.main.Note object at 0x7f7a79f07430>, <c16_03.main.Note object at 0x7f7a79f07760>), 'elv1')
 
 test_16_03.py:82: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-[<c16_03.main.Note object at 0x7ff342c48430>, <c16_03.main.Note object at 0x7ff342c483a0>]
-(<c16_03.main.Note object at 0x7ff342c48430>, <c16_03.main.Note object at 0x7ff342c483a0>, <c16_03.main.Note object at 0x7ff342c48520>)
-_____________________________ Test1603sute.test_9 ______________________________
-
-self = <c16_03.test_16_03.Test1603sute testMethod=test_9>
-
-    def test_9(self):
-        try:
-            from .main  import Note
-        except:
-           assert False
->       assert hasattr(Note, 'instances')
-E       AssertionError: assert False
-E        +  where False = hasattr(<class 'c16_03.main.Note'>, 'instances')
-
-test_16_03.py:90: AssertionError
+[<c16_03.main.Note object at 0x7f7a79f07460>, <c16_03.main.Note object at 0x7f7a79f07430>]
+(<c16_03.main.Note object at 0x7f7a79f07460>, <c16_03.main.Note object at 0x7f7a79f07430>, <c16_03.main.Note object at 0x7f7a79f07760>)
 =========================== short test summary info ============================
-FAILED test_16_03.py::Test1603sute::test_10 - AssertionError: assert False
+FAILED test_16_03.py::Test1603sute::test_10 - AssertionError: Probleme de par...
 FAILED test_16_03.py::Test1603sute::test_4 - AssertionError: moyenne_tuples n...
-FAILED test_16_03.py::Test1603sute::test_6 - AssertionError: Refaire la metho...
 FAILED test_16_03.py::Test1603sute::test_8 - AssertionError: assert 14.666666...
-FAILED test_16_03.py::Test1603sute::test_9 - AssertionError: assert False
-========================= 5 failed, 2 passed in 0.07s ==========================
+========================= 3 failed, 4 passed in 0.06s ==========================
