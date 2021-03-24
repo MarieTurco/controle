@@ -80,7 +80,7 @@ eleve eleve2 matiere math note 13
 13
 eleve eleve2 matiere math note 14
 14
-[<c16_03.main.Note object at 0x7f4c637df850>]
+[<c16_03.main.Note object at 0x7fe26e284820>]
 Test : 14.0
 _____________________________ Test1603sute.test_4 ______________________________
 
@@ -146,14 +146,14 @@ self = <c16_03.test_16_03.Test1603sute testMethod=test_8>
         assert mnotes(notes, 'elv1', 'xx') == 14.5
 >       assert mnotes(notes, 'elv1')== 14.5
 E       AssertionError: assert 14.666666666666666 == 14.5
-E        +  where 14.666666666666666 = <function moyenne_Notes at 0x7f4c6385dc10>((<c16_03.main.Note object at 0x7f4c637dfc70>, <c16_03.main.Note object at 0x7f4c63874f10>, <c16_03.main.Note object at 0x7f4c63874dc0>), 'elv1')
+E        +  where 14.666666666666666 = <function moyenne_Notes at 0x7fe26e301c10>((<c16_03.main.Note object at 0x7fe26e284a00>, <c16_03.main.Note object at 0x7fe26e2849a0>, <c16_03.main.Note object at 0x7fe26e318eb0>), 'elv1')
 
 test_16_03.py:82: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-[<c16_03.main.Note object at 0x7f4c637dfc70>, <c16_03.main.Note object at 0x7f4c63874f10>]
-(<c16_03.main.Note object at 0x7f4c637dfc70>, <c16_03.main.Note object at 0x7f4c63874f10>, <c16_03.main.Note object at 0x7f4c63874dc0>)
+[<c16_03.main.Note object at 0x7fe26e284a00>, <c16_03.main.Note object at 0x7fe26e2849a0>]
+(<c16_03.main.Note object at 0x7fe26e284a00>, <c16_03.main.Note object at 0x7fe26e2849a0>, <c16_03.main.Note object at 0x7fe26e318eb0>)
 =========================== short test summary info ============================
 FAILED test_16_03.py::Test1603sute::test_10 - AssertionError: Probleme de par...
 FAILED test_16_03.py::Test1603sute::test_4 - AssertionError: moyenne_tuples n...
 FAILED test_16_03.py::Test1603sute::test_8 - AssertionError: assert 14.666666...
-========================= 3 failed, 4 passed in 0.09s ==========================
+========================= 3 failed, 4 passed in 0.07s ==========================
