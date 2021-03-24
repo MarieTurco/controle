@@ -66,7 +66,7 @@ eleve eleve2 matiere math note 14
 14
 eleve eleve2 matiere math note 14
 None
-[<c16_03.main.Note object at 0x7f35cd605760>]
+[<c16_03.main.Note object at 0x7ff342bc4760>]
 Test : 14.0
 _____________________________ Test1603sute.test_4 ______________________________
 
@@ -145,12 +145,12 @@ self = <c16_03.test_16_03.Test1603sute testMethod=test_8>
         assert mnotes(notes, 'elv1', 'xx') == 14.5
 >       assert mnotes(notes, 'elv1')== 14.5
 E       AssertionError: assert 14.666666666666666 == 14.5
-E        +  where 14.666666666666666 = <function moyenne_Notes at 0x7f35cd682c10>((<c16_03.main.Note object at 0x7f35cd688400>, <c16_03.main.Note object at 0x7f35cd6880a0>, <c16_03.main.Note object at 0x7f35cd688520>), 'elv1')
+E        +  where 14.666666666666666 = <function moyenne_Notes at 0x7ff342c42c10>((<c16_03.main.Note object at 0x7ff342c48430>, <c16_03.main.Note object at 0x7ff342c483a0>, <c16_03.main.Note object at 0x7ff342c48520>), 'elv1')
 
 test_16_03.py:82: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-[<c16_03.main.Note object at 0x7f35cd688400>, <c16_03.main.Note object at 0x7f35cd6880a0>]
-(<c16_03.main.Note object at 0x7f35cd688400>, <c16_03.main.Note object at 0x7f35cd6880a0>, <c16_03.main.Note object at 0x7f35cd688520>)
+[<c16_03.main.Note object at 0x7ff342c48430>, <c16_03.main.Note object at 0x7ff342c483a0>]
+(<c16_03.main.Note object at 0x7ff342c48430>, <c16_03.main.Note object at 0x7ff342c483a0>, <c16_03.main.Note object at 0x7ff342c48520>)
 _____________________________ Test1603sute.test_9 ______________________________
 
 self = <c16_03.test_16_03.Test1603sute testMethod=test_9>
@@ -171,4 +171,4 @@ FAILED test_16_03.py::Test1603sute::test_4 - AssertionError: moyenne_tuples n...
 FAILED test_16_03.py::Test1603sute::test_6 - AssertionError: Refaire la metho...
 FAILED test_16_03.py::Test1603sute::test_8 - AssertionError: assert 14.666666...
 FAILED test_16_03.py::Test1603sute::test_9 - AssertionError: assert False
-========================= 5 failed, 2 passed in 0.06s ==========================
+========================= 5 failed, 2 passed in 0.07s ==========================
