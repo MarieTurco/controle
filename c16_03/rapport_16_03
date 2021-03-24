@@ -1,0 +1,174 @@
+============================= test session starts ==============================
+platform linux -- Python 3.9.2, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
+rootdir: /home/stidsem4/iut/2021/controle/marie.turco/c16_03
+collected 7 items
+
+test_16_03.py F.F.FFF                                                    [100%]
+
+=================================== FAILURES ===================================
+_____________________________ Test1603sute.test_10 _____________________________
+
+self = <c16_03.test_16_03.Test1603sute testMethod=test_10>
+
+    def test_10(self):
+        try:
+            from .main  import Note
+        except:
+           assert False
+        try:
+>           Note.vider()
+E           AttributeError: type object 'Note' has no attribute 'vider'
+
+test_16_03.py:98: AttributeError
+
+During handling of the above exception, another exception occurred:
+
+self = <c16_03.test_16_03.Test1603sute testMethod=test_10>
+
+    def test_10(self):
+        try:
+            from .main  import Note
+        except:
+           assert False
+        try:
+            Note.vider()
+        except:
+>           assert False
+E           AssertionError: assert False
+
+test_16_03.py:100: AssertionError
+----------------------------- Captured stdout call -----------------------------
+note : [('eleve1', 'math', 13), ('eleve1', 'physique', 15), ('eleve1', 'math', 13), ('eleve1', 'eco', 12), ('eleve1', 'eco', 13), ('eleve1', 'math', 12), ('eleve2', 'math', 13), ('eleve2', 'math', 14)]
+Moyenne de l'élève 1 : 13.0
+Moyenne de l'élève 1 en maths : 12.666666666666666
+[('eleve2', 'math', 13), ('eleve2', 'math', 14)]
+le résultat de la fonction :  13.5
+eleve1
+maths
+13
+eleve eleve1 matiere maths note 13
+longueur de la liste : 8
+eleve eleve1 matiere math note 13
+13
+eleve eleve1 matiere physique note 15
+15
+eleve eleve1 matiere math note 13
+13
+eleve eleve1 matiere eco note 12
+12
+eleve eleve1 matiere eco note 13
+13
+eleve eleve1 matiere math note 12
+12
+eleve eleve2 matiere math note 13
+13
+eleve eleve2 matiere math note 14
+14
+eleve eleve2 matiere math note 14
+None
+[<c16_03.main.Note object at 0x7fa48f88e730>]
+Test : 14.0
+_____________________________ Test1603sute.test_4 ______________________________
+
+self = <c16_03.test_16_03.Test1603sute testMethod=test_4>
+
+    def test_4(self):
+        try:
+>           from main import moyenne_tuples
+E           ModuleNotFoundError: No module named 'main'
+
+test_16_03.py:16: ModuleNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+self = <c16_03.test_16_03.Test1603sute testMethod=test_4>
+
+    def test_4(self):
+        try:
+            from main import moyenne_tuples
+        except ImportError:
+            try:
+>               from .main import moyenne_tuple as moyenne_tuples
+E               ImportError: cannot import name 'moyenne_tuple' from 'c16_03.main' (/home/stidsem4/iut/2021/controle/marie.turco/c16_03/main.py)
+
+test_16_03.py:19: ImportError
+
+During handling of the above exception, another exception occurred:
+
+self = <c16_03.test_16_03.Test1603sute testMethod=test_4>
+
+    def test_4(self):
+        try:
+            from main import moyenne_tuples
+        except ImportError:
+            try:
+                from .main import moyenne_tuple as moyenne_tuples
+            except ImportError:
+>               assert False, "moyenne_tuples non définie"
+E               AssertionError: moyenne_tuples non définie
+E               assert False
+
+test_16_03.py:21: AssertionError
+_____________________________ Test1603sute.test_6 ______________________________
+
+self = <c16_03.test_16_03.Test1603sute testMethod=test_6>
+
+    def test_6(self):
+        from .main import Note, onotes
+>       assert Note.__str__ != object.__str__, "Refaire la methode str"
+E       AssertionError: Refaire la methode str
+E       assert <slot wrapper '__str__' of 'object' objects> != <slot wrapper '__str__' of 'object' objects>
+E        +  where <slot wrapper '__str__' of 'object' objects> = <class 'c16_03.main.Note'>.__str__
+E        +  and   <slot wrapper '__str__' of 'object' objects> = object.__str__
+
+test_16_03.py:42: AssertionError
+_____________________________ Test1603sute.test_8 ______________________________
+
+self = <c16_03.test_16_03.Test1603sute testMethod=test_8>
+
+    def test_8(self):
+        try:
+            from .main import Note
+        except ImportError:
+            assert False, "import de Note impossible"
+        try:
+            from .main  import moyenne_Notes as mnotes
+        except ImportError:
+            try:
+                from .main  import moyenne_notes as mnotes
+            except ImportError:
+                assert False, "La fonction moyenne_notes n'est pas définie"
+        note1 = Note('elv1', 'xx', 14)
+        note2 = Note('elv1', 'xx',  15)
+        note3 = Note('elv2', 'yy', 15)
+        notes = note1, note2, note3
+        assert mnotes(notes, 'elv1', 'xx') == 14.5
+>       assert mnotes(notes, 'elv1')== 14.5
+E       AssertionError: assert 14.666666666666666 == 14.5
+E        +  where 14.666666666666666 = <function moyenne_Notes at 0x7fa48f90bc10>((<c16_03.main.Note object at 0x7fa48f88ef70>, <c16_03.main.Note object at 0x7fa48f88ee20>, <c16_03.main.Note object at 0x7fa48f88ed00>), 'elv1')
+
+test_16_03.py:82: AssertionError
+----------------------------- Captured stdout call -----------------------------
+[<c16_03.main.Note object at 0x7fa48f88ef70>, <c16_03.main.Note object at 0x7fa48f88ee20>]
+(<c16_03.main.Note object at 0x7fa48f88ef70>, <c16_03.main.Note object at 0x7fa48f88ee20>, <c16_03.main.Note object at 0x7fa48f88ed00>)
+_____________________________ Test1603sute.test_9 ______________________________
+
+self = <c16_03.test_16_03.Test1603sute testMethod=test_9>
+
+    def test_9(self):
+        try:
+            from .main  import Note
+        except:
+           assert False
+>       assert hasattr(Note, 'instances')
+E       AssertionError: assert False
+E        +  where False = hasattr(<class 'c16_03.main.Note'>, 'instances')
+
+test_16_03.py:90: AssertionError
+=========================== short test summary info ============================
+FAILED test_16_03.py::Test1603sute::test_10 - AssertionError: assert False
+FAILED test_16_03.py::Test1603sute::test_4 - AssertionError: moyenne_tuples n...
+FAILED test_16_03.py::Test1603sute::test_6 - AssertionError: Refaire la metho...
+FAILED test_16_03.py::Test1603sute::test_8 - AssertionError: assert 14.666666...
+FAILED test_16_03.py::Test1603sute::test_9 - AssertionError: assert False
+========================= 5 failed, 2 passed in 0.10s ==========================
